@@ -33,18 +33,18 @@ spec:
           valueFrom:
             secretKeyRef:
             name: docker-credentials
-          key: username2.txt
-    - name: PASSWORD_FILE
-      value: /etc/secret/password2.txt
-    volumeMounts:
-    - name: docker-credentials
-      mountPath: /etc/secret/
-  volumes:
-  - name: password-volume
-    secret:
-      secretName: docker-credentials
-      items:
-      - key: password2.txt
-        path: password2.txt
+            key: username2.txt
+        - name: PASSWORD_FILE
+          value: /etc/secret/password2.txt
+        volumeMounts:
+        - name: docker-credentials
+          mountPath: /etc/secret/
+      volumes:
+      - name: password-volume
+        secret:
+          secretName: docker-credentials
+        items:
+        - key: password2.txt
+          path: password2.txt
 
 
